@@ -3,8 +3,7 @@
   session_start();
   require 'autoloader.php';
 
-
-  // Get URI and remove basepath
+  // Get URI and remove base path
   $_GET['basepath'] = dirname($_SERVER['PHP_SELF']);
   if ($_GET['basepath'] == "/" || $_GET['basepath'] == "\\") {
     $_GET['basepath'] = "";
@@ -18,7 +17,7 @@
     $uri = substr($uri, 0, strpos($uri, '?'));
   }
 
-  // seperate URI
+  // separate URI
   $params = explode("/", trim($uri, "/"));
 
   // walk through params
@@ -29,7 +28,10 @@
 
   // select page based on parameter
   switch ($_GET['v0']) {
+    case 'register':
+      include_once 'view/register.html';
+      break;
     default:
-      include_once 'view/index.html';
+      include_once 'view/login.html';
   }
   ?>

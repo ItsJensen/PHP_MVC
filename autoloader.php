@@ -5,16 +5,13 @@ spl_autoload_register(function ($class_name) {
 
   $source = $_SERVER['DOCUMENT_ROOT'];
 
-  $subfolder = "/"; // format: /foldername
+  $subfolder = "/Dashboard"; // format: /foldername
   $dirs = [
     $source . $subfolder . '/controller/',
     $source . $subfolder . '/model/',
   ];
 
   foreach ($dirs as $directory) {
-
-
-
     //see if the file exsists
     if (file_exists($directory . $class_name . '.php')) {
       require($directory . $class_name . '.php');
